@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<tiles-definitions>
+
+
+
+	<definition name="${YOUR_DEFINITION_HERE}">
+	</definition>
+
+	<definition name="FirstLayout" path="/layout.jsp">
+		<put name="header" value="/header.jsp" />
+		<put name="body" value="/body.jsp" />
+		<put name="footer" value="/footer.jsp" />
+	</definition>
+
+	<definition name="list" extends="FirstLayout">
+		<put name="body" value="/list.jsp" />
+	</definition>
+
+	<definition name="insert" extends="FirstLayout">
+		<put name="body" value="/insert.jsp" />
+	</definition>
+
+	<definition name="search" extends="FirstLayout">
+		<put name="body" value="/search.jsp" />
+
+	</definition>
+
+	<definition name="details" extends="FirstLayout">
+		<put name="body" value="/details.jsp" />
+
+	</definition>
+
+	<definition name="update" extends="FirstLayout">
+		<put name="body" value="/update.jsp" />
+
+	</definition>
+
+	<definition name="email" extends="FirstLayout">
+		<put name="body" value="/email.jsp" />
+
+	</definition>
+
+	<definition name="upload" extends="FirstLayout">
+		<put name="body" value="/upload.jsp" />
+
+	</definition>
+
+	<definition name="result" extends="FirstLayout">
+		<put name="body" value="/result.jsp" />
+
+	</definition>
+
+	<definition name="message" extends="FirstLayout">
+		<put name="body" value="/message.jsp" />
+
+	</definition>
+
+	<definition name="success" extends="FirstLayout">
+		<put name="body" value="/success.jsp" />
+
+	</definition>
+
+	<definition name="download" extends="FirstLayout">
+		<put name="body" value="/download.jsp" />
+
+	</definition>
+
+	<definition name="login" extends="FirstLayout">
+		<put name="header" value="/head.jsp" />
+		<put name="body" value="/login.jsp" />
+
+
+	</definition>
+
+	<definition name="register" extends="FirstLayout">
+		<put name="header" value="/head.jsp" />
+		<put name="body" value="/register.jsp" />
+
+	</definition>
+
+	<definition name="first" extends="FirstLayout">
+		<put name="header" value="/head.jsp" />
+		<put name="body" value="/firstbody.jsp" />
+
+	</definition>
+	
+	<definition name="excel" extends="FirstLayout">
+		<put name="header" value="/header.jsp" />
+		<put name="body" value="/excel.jsp" />
+
+	</definition>
+
+</tiles-definitions>

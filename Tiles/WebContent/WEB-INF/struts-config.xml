@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+
+<struts-config>
+	<form-beans>
+		<form-bean name="SicmsbForm" type="com.sicmsb.form.SicmsbForm" />
+		<form-bean name="SicmsbFile" type="com.sicmsb.form.FileUploadForm" />
+		<form-bean name="SicmsbExcel" type="com.sicmsb.form.ExcelForm" />
+	</form-beans>
+
+	<global-exceptions>
+
+	</global-exceptions>
+
+	<action-mappings>
+		<action path="/Action" parameter="method"
+			type="com.sicmsb.action.SicmsbAction" name="SicmsbForm" scope="request">
+			<forward name="first" path="first" />
+			<forward name="FirstLayout" path="FirstLayout" />
+			<forward name="search" path="search" />
+			<forward name="list" path="list" />
+			<forward name="insert" path="insert" />
+			<forward name="details" path="details" />
+			<forward name="update" path="update" />
+			<forward name="email" path="email" />
+			<forward name="upload" path="upload" />
+			<forward name="result" path="result" />
+			<forward name="message" path="message" />
+			<forward name="success" path="success" />
+			<forward name="login" path="login" />
+			<forward name="register" path="register" />
+
+
+
+		</action>
+		<action path="/File" parameter="method"
+			type="com.sicmsb.action.SicmsbFileAction" name="SicmsbFile" scope="request">
+			<forward name="FirstLayout" path="FirstLayout" />
+			<forward name="success" path="success" />
+			<forward name="download" path="download" />
+
+
+		</action>
+		
+		<action path="/Excel" parameter="method"
+			type="com.sicmsb.action.ExcelAction" name="SicmsbExcel" scope="request">
+			<forward name="FirstLayout" path="FirstLayout" />
+			<forward name="excel" path="excel" />
+
+
+		</action>
+
+
+
+		<action path="/Welcome" forward="/Action.do?method=Start">
+		</action>
+
+	</action-mappings>
+
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+
+
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+
+
+
+
+</struts-config>

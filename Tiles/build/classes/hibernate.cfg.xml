@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ~ Hibernate, Relational Persistence for Idiomatic Java ~ ~ Copyright 
+	(c) 2010, Red Hat Inc. or third-party contributors as ~ indicated by the 
+	@author tags or express copyright attribution ~ statements applied by the 
+	authors. All third-party contributions are ~ distributed under license by 
+	Red Hat Inc. ~ ~ This copyrighted material is made available to anyone wishing 
+	to use, modify, ~ copy, or redistribute it subject to the terms and conditions 
+	of the GNU ~ Lesser General Public License, as published by the Free Software 
+	Foundation. ~ ~ This program is distributed in the hope that it will be useful, 
+	~ but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
+	~ or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public 
+	License ~ for more details. ~ ~ You should have received a copy of the GNU 
+	Lesser General Public License ~ along with this distribution; if not, write 
+	to: ~ Free Software Foundation, Inc. ~ 51 Franklin Street, Fifth Floor ~ 
+	Boston, MA 02110-1301 USA -->
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.password">1234</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/sicmsb</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+		<mapping class="com.sicmsb.bean.SicmsbTb"></mapping>
+		<mapping class="com.sicmsb.bean.Login"></mapping>
+		
+
+	</session-factory>
+</hibernate-configuration>
