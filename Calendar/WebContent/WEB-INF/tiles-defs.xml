@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<tiles-definitions>
+
+
+
+	<definition name="${YOUR_DEFINITION_HERE}">
+	</definition>
+
+	<definition name="FirstLayout" path="/layout.jsp">
+		<put name="header" value="/head.jsp" />
+		<put name="body" value="/body.jsp" />
+		<put name="footer" value="/footer.jsp" />
+	</definition>
+
+	<definition name="calendar" extends="FirstLayout">
+		<put name="header" value="/header.jsp" />
+		<put name="body" value="/calendar.jsp" />
+
+	</definition>
+
+	<definition name="remark" extends="FirstLayout">
+		<put name="header" value="/header.jsp" />
+		<put name="body" value="/remark.jsp" />
+
+	</definition>
+
+	<definition name="register" extends="FirstLayout">
+		<put name="body" value="/register.jsp" />
+
+	</definition>
+
+	<definition name="login" extends="FirstLayout">
+		<put name="body" value="/login.jsp" />
+
+	</definition>
+	
+	<definition name="list" extends="FirstLayout">
+		<put name="header" value="/header.jsp" />
+		<put name="body" value="/listremark.jsp" />
+
+	</definition>
+	
+	
+
+
+
+</tiles-definitions>
