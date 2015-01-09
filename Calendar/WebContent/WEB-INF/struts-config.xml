@@ -25,6 +25,7 @@
 			<forward name="remark" path="remark" />
 			<forward name="FirstLayout" path="FirstLayout" />
 			<forward name="list" path="list" />
+			<forward name="new" path="new" />
 			
 			
 

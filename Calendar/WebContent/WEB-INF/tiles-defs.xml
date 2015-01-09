@@ -46,6 +46,12 @@
 
 	</definition>
 	
+	<definition name="new" extends="FirstLayout">
+		<put name="header" value="/header.jsp" />
+		<put name="body" value="/test2.jsp" />
+
+	</definition>
+	
 	
 
 

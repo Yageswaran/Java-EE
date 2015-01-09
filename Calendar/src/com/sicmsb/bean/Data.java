@@ -1,6 +1,6 @@
 package com.sicmsb.bean;
 
-// Generated Dec 17, 2014 10:42:05 AM by Hibernate Tools 3.4.0.CR1
+// Generated Jan 6, 2015 10:57:59 AM by Hibernate Tools 3.4.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,15 +18,22 @@ public class Data implements java.io.Serializable {
 
 	private Integer id;
 	private String username;
-	private String date;
+	private String startdate;
+	private String enddate;
+	private String starttime;
+	private String endtime;
 	private String remarks;
 
 	public Data() {
 	}
 
-	public Data(String username, String date, String remarks) {
+	public Data(String username, String startdate, String enddate,
+			String starttime, String endtime, String remarks) {
 		this.username = username;
-		this.date = date;
+		this.startdate = startdate;
+		this.enddate = enddate;
+		this.starttime = starttime;
+		this.endtime = endtime;
 		this.remarks = remarks;
 	}
 
@@ -50,13 +57,40 @@ public class Data implements java.io.Serializable {
 		this.username = username;
 	}
 
-	@Column(name = "date")
-	public String getDate() {
-		return this.date;
+	@Column(name = "startdate", length = 45)
+	public String getStartdate() {
+		return this.startdate;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setStartdate(String startdate) {
+		this.startdate = startdate;
+	}
+
+	@Column(name = "enddate", length = 45)
+	public String getEnddate() {
+		return this.enddate;
+	}
+
+	public void setEnddate(String enddate) {
+		this.enddate = enddate;
+	}
+
+	@Column(name = "starttime", length = 45)
+	public String getStarttime() {
+		return this.starttime;
+	}
+
+	public void setStarttime(String starttime) {
+		this.starttime = starttime;
+	}
+
+	@Column(name = "endtime", length = 45)
+	public String getEndtime() {
+		return this.endtime;
+	}
+
+	public void setEndtime(String endtime) {
+		this.endtime = endtime;
 	}
 
 	@Column(name = "remarks")

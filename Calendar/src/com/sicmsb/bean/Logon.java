@@ -1,6 +1,6 @@
 package com.sicmsb.bean;
 
-// Generated Dec 17, 2014 10:42:05 AM by Hibernate Tools 3.4.0.CR1
+// Generated Jan 6, 2015 10:57:59 AM by Hibernate Tools 3.4.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

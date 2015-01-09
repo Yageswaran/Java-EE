@@ -1,5 +1,7 @@
 package com.sicmsb.form;
 
+import javax.persistence.Column;
+
 import org.apache.struts.action.ActionForm;
 
 
@@ -16,6 +18,10 @@ public class DataForm extends ActionForm{
 	private String date;
 	private String remarks;
 	private String msg;
+	private String startdate;
+	private String enddate;
+	private String starttime;
+	private String endtime;
 
 	public DataForm() {
 	}
@@ -81,6 +87,40 @@ public class DataForm extends ActionForm{
 	
 	public String getMsg(){
 		return msg;
+	}
+	
+	public String getStartdate() {
+		return this.startdate;
+	}
+
+	public void setStartdate(String startdate) {
+		this.startdate = startdate;
+	}
+
+	
+	public String getEnddate() {
+		return this.enddate;
+	}
+
+	public void setEnddate(String enddate) {
+		this.enddate = enddate;
+	}
+	
+	public String getStarttime() {
+		return this.starttime;
+	}
+
+	public void setStarttime(String starttime) {
+		this.starttime = starttime;
+	}
+
+	
+	public String getEndtime() {
+		return this.endtime;
+	}
+
+	public void setEndtime(String endtime) {
+		this.endtime = endtime;
 	}
 	
 }

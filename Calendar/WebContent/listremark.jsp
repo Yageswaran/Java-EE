@@ -17,6 +17,8 @@
 			<th>Name</th>
 			<th>Date</th>
 			<th>Remarks</th>
+			<th>Start Time</th>
+			<th>End Time</th>
 			
 		</tr>
 
@@ -24,8 +26,10 @@
 			type="com.sicmsb.bean.Data">
 			<tr>
 				<td><center><bean:write name="dat" property="username" /></center></td>
-				<td><center><bean:write name="dat" property="date" /></center></td>
+				<td><center><bean:write name="dat" property="startdate" /></center></td>
 				<td><center><bean:write name="dat" property="remarks" /></center></td>
+				<td><center><bean:write name="dat" property="starttime" /></center></td>
+				<td><center><bean:write name="dat" property="endtime" /></center></td>
 				
 			</tr>
 		</logic:iterate>

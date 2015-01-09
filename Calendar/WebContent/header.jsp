@@ -13,10 +13,12 @@
 				<td><a href="Calendar.do?method=preLogin"><b>Login</b></a></td>
 
 				<td><a href="Calendar.do?method=preRegister"><b>Register</b></a></td>
+				
+				<td><a href="Calendar.do?method=NewCalendar"><b>Show Calendar</b></a></td>
 
-				<td><a href="Calendar.do?method=preCalendar"><b>Show
-							Calendar</b></a></td>
 				<td><a href="Calendar.do?method=List"><b>Remarks</b></a></td>
+				
+				
 
 
 

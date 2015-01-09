@@ -19,6 +19,7 @@ import com.sicmsb.bean.LoginService;
 import com.sicmsb.bean.RegisterService;
 import com.sicmsb.form.CalendarForm;
 import com.sicmsb.form.DataForm;
+import com.sicmsb.servlet.CalEventServlet;
 import com.sicmsb.bean.PasswordHash;
 
 public class CalendarAction extends DispatchAction {
@@ -35,7 +36,7 @@ public class CalendarAction extends DispatchAction {
 		} catch (Exception e) {
 			log.error("ERROR", e);
 		}
-		return mapping.findForward("calendar");
+		return mapping.findForward("new");
 	}
 
 	public ActionForward Remark(ActionMapping mapping, ActionForm form,
@@ -62,12 +63,15 @@ public class CalendarAction extends DispatchAction {
 			Data dat = new Data();
 
 			dat.setRemarks(formc.getRemarks());
-			dat.setDate(formc.getDate());
 			dat.setUsername(action_user);
+			dat.setStartdate(formc.getDate());
+			dat.setStarttime(formc.getStarttime());
+			dat.setEnddate(formc.getEnddate());
+			dat.setEndtime(formc.getEndtime());
 
-			System.out.println(dat.getUsername());
-			System.out.println(dat.getDate());
-			System.out.println(dat.getRemarks());
+			//System.out.println(dat.getUsername());
+			//System.out.println(dat.getStartdate());
+			//System.out.println(dat.getRemarks());
 
 			session.save(dat);
 			session.getTransaction().commit();
@@ -75,7 +79,7 @@ public class CalendarAction extends DispatchAction {
 		} catch (Exception e) {
 			log.error("ERROR", e);
 		}
-		response.sendRedirect("Calendar.do?method=preCalendar");
+		response.sendRedirect("Calendar.do?method=NewCalendar");
 		return null;
 
 	}
@@ -148,6 +152,7 @@ public class CalendarAction extends DispatchAction {
 			Logon login = loginService.getUserByUserId(user);
 			if (result == true) {
 				action_user = user;
+				CalEventServlet.setUsername(user);
 				response.sendRedirect("Calendar.do?method=preCalendar");
 			} else {
 				response.sendRedirect("Calendar.do?method=preLogin");
@@ -186,6 +191,14 @@ public class CalendarAction extends DispatchAction {
 		}
 
 		return mapping.findForward("list");
+
+	}
+	
+	public ActionForward NewCalendar(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+
+		return mapping.findForward("new");
 
 	}
 
