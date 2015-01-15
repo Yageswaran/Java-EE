@@ -9,6 +9,7 @@
 <script src='../Calendar/test/fullcalendar-2.2.3/lib/moment.min.js'></script>
 <script src='../Calendar/test/fullcalendar-2.2.3/lib/jquery.min.js'></script>
 <script src='../Calendar/test/fullcalendar-2.2.3/fullcalendar.min.js'></script>
+<script src='../Calendar/test/fullcalendar-2.2.3/fullcalendar.js'></script>
 <script>
 	$(document).ready(function() {
 

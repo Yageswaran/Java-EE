@@ -69,6 +69,7 @@ public class CalEventServlet extends HttpServlet {
 
 				buf.append("{");
 				System.out.println("{");
+				buf.append("\"id\": \"").append(dat.getId()).append("\",");
 				buf.append("\"title\": \"" + dat.getRemarks() + "\","); //
 				System.out.println("\"title\": \"" + dat.getRemarks() + "\",");
 				buf.append("\"start\": \"" + dat.getStartdate() + "T"

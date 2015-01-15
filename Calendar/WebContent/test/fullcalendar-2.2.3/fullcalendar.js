@@ -29,7 +29,7 @@ var defaults = {
 	aspectRatio: 1.35,
 	header: {
 		left: 'title',
-		center: '',
+		center: 'prevYear,nextYear',
 		right: 'today prev,next'
 	},
 	weekends: true,

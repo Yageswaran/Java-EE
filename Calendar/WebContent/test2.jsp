@@ -9,6 +9,7 @@
 <script src='/Calendar/test/fullcalendar-2.2.3/lib/moment.min.js'></script>
 <script src='/Calendar/test/fullcalendar-2.2.3/lib/jquery.min.js'></script>
 <script src='/Calendar/test/fullcalendar-2.2.3/fullcalendar.min.js'></script>
+<script src='../Calendar/test/fullcalendar-2.2.3/fullcalendar.js'></script>
 <script>
 	function go(i) {
 		var form = document['HiddenForm'];
@@ -16,46 +17,139 @@
 		form['date'].value = i;
 		form.submit();
 	}
-	$(document).ready(function() {
+	$(document)
+			.ready(
+					function() {
 
-		try {
-			$('#calendar').fullCalendar({
+						try {
+							$('#calendar')
+									.fullCalendar(
+											{
 
-				dayClick : function(date, jsEvent, view) {
-					//alert('Clicked on: ' + date.format());
-					// change the day's background color just for fun
-					//$(this).css('background-color', 'orange');
-					go(date.format());
+												dayClick : function(date,
+														jsEvent, view) {
+													//alert('Clicked on: ' + date.format());
+													// change the day's background color just for fun
+													//$(this).css('background-color', 'orange');
+													go(date.format());
 
-				},
-				events : {
+												},
+												events : {
 
-					url : '/Calendar/calevent'
-					
-					
-				}
+													url : '/Calendar/calevent'
 
-			});
-		} catch (e) {
-			alert(e.message);
-		}
+												},
+												eventClick : function(event,
+														jsEvent, view) {
+													// opens events in a popup window
+													var eid = 'id=' + event.id;
+													window
+															.open(
+																	'Calendar.do?method=List&'
+																			+ eid,
+																	'Remarks',
+																	'width=700,height=400');
+													return false;
+												},
 
-		//-
-		//$("td.fc-day").click(function() {
+												loading : function(bool) {
+													$('#loading').toggle(bool);
+												}
 
-		//var x = $( "td.fc-widget-content" );
+												,
+												eventRender : function(event,
+														element) {
+													//element.qtip({
+													//	content : 'I am here'
+													//});
+													if (event.title == "On-Site Work") {
+														element
+																.css(
+																		'background-color',
+																		'orange');
+													}
+													if (event.title == "Annual Leave") {
+														element
+																.css(
+																		'background-color',
+																		'blue');
+													}
+													if (event.title == "Emergency leave") {
+														element
+																.css(
+																		'background-color',
+																		'silver');
+													}
+													if (event.title == "Vacation Leave") {
+														element
+																.css(
+																		'background-color',
+																		'green');
+													}
+													if (event.title == "Client Meeting") {
+														element
+																.css(
+																		'background-color',
+																		'purple');
+													}
+													if (event.title == "Meeting") {
+														element
+																.css(
+																		'background-color',
+																		'red');
+													}
+													if (event.title == "Biweekly Meeting") {
+														element
+																.css(
+																		'background-color',
+																		'maroon');
+													}
+													if (event.title == "Planned Leave") {
+														element
+																.css(
+																		'background-color',
+																		'brown');
+													}
+													if (event.title == "Half-Day leave") {
+														element
+																.css(
+																		'background-color',
+																		'pink');
+													}
 
-		//console.log($(x).html);
-		//$(this).css('background-color', 'orange');
-		//$(this).js.date;
-		//alert('Clicked on: ' + date.format());
-		//$(this).js.date;
-		//console.log("clicked");
-		//});
+													/* 	Annual leave
+														Emergency Leave
+														Vacation Leave
+														On-Site Work
+														Client Meeting
+														Meeting
+														Biweekly Meeting
+														Planned leave
+														Half-day leave */
 
-		//-
+												}
 
-	});
+											});
+						} catch (e) {
+							alert(e.message);
+						}
+
+						//-
+						//$("td.fc-day").click(function() {
+
+						//var x = $( "td.fc-widget-content" );
+
+						//console.log($(x).html);
+						//$(this).css('background-color', 'orange');
+						//$(this).js.date;
+						//alert('Clicked on: ' + date.format());
+						//$(this).js.date;
+						//console.log("clicked");
+						//});
+
+						//-
+
+					});
 </script>
 <style>
 body {
@@ -69,6 +163,21 @@ body {
 	max-width: 900px;
 	margin: 0 auto;
 }
+
+#loading {
+	display: none;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+a.fc-event {
+	cursor: pointer;
+}
+
+a.fc-event:HOVER {
+	background-color: #222222;
+}
 </style>
 </head>
 <body>
@@ -78,6 +187,7 @@ body {
 		<input type="hidden" name="date" />
 	</form>
 	<div id='script-warning'></div>
+	<div id='loading'>loading...</div>
 	<div id='calendar'></div>
 
 </body>
