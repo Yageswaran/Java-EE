@@ -9,6 +9,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.sicmsb.bean.Data;
@@ -69,9 +70,9 @@ public class CalendarAction extends DispatchAction {
 			dat.setEnddate(formc.getEnddate());
 			dat.setEndtime(formc.getEndtime());
 
-			//System.out.println(dat.getUsername());
-			//System.out.println(dat.getStartdate());
-			//System.out.println(dat.getRemarks());
+			// System.out.println(dat.getUsername());
+			// System.out.println(dat.getStartdate());
+			// System.out.println(dat.getRemarks());
 
 			session.save(dat);
 			session.getTransaction().commit();
@@ -178,7 +179,7 @@ public class CalendarAction extends DispatchAction {
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		try {
-			
+
 			DataDao dao = new DataDao();
 			List<Data> list = dao.findName(action_user);
 			for (Data dat : list) {
@@ -193,12 +194,73 @@ public class CalendarAction extends DispatchAction {
 		return mapping.findForward("list");
 
 	}
-	
+
 	public ActionForward NewCalendar(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 
 		return mapping.findForward("new");
+
+	}
+
+	public ActionForward EventShow(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		try {
+			List<Data> list = null;
+			String param = request.getParameter("id");
+			System.out.println(param);
+			Query query = session.createQuery("from Data where id like '%"
+					+ param + "%'");
+			list = (List<Data>) query.list();
+			session.getTransaction().commit();
+			for (Data dat : list) {
+				// log.debug(dat.getStartdate());
+
+				DataForm eventform = (DataForm) form;
+				eventform.setId(dat.getId());
+				eventform.setStartdate(dat.getStartdate());
+				eventform.setEnddate(dat.getEnddate());
+				eventform.setStarttime(dat.getStarttime());
+				eventform.setEndtime(dat.getEndtime());
+				eventform.setRemarks(dat.getRemarks());
+				eventform.setUsername(dat.getUsername());
+
+			}
+
+			request.setAttribute("list", list);
+
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			session.getTransaction().rollback();
+		}
+
+		return mapping.findForward("event");
+
+	}
+
+	public ActionForward Delete(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+
+		String del = request.getParameter("id");
+
+		String sql = "delete from Data where id =" + del;
+		Query query = session.createQuery(sql);
+		int row = query.executeUpdate();
+		if (row == 0)
+			System.out.println("Doesnt deleted any row!");
+		else
+			System.out.println("Deleted Row: " + row);
+		session.getTransaction().commit();
+		session.close();
+
+		return mapping.findForward("delete");
 
 	}
 

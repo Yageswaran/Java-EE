@@ -26,6 +26,8 @@
 			<forward name="FirstLayout" path="FirstLayout" />
 			<forward name="list" path="list" />
 			<forward name="new" path="new" />
+			<forward name="event" path="event" />
+			<forward name="delete" path="delete" />
 			
 			
 

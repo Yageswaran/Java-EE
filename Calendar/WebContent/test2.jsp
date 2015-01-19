@@ -45,10 +45,10 @@
 													var eid = 'id=' + event.id;
 													window
 															.open(
-																	'Calendar.do?method=List&'
+																	'Calendar.do?method=EventShow&'
 																			+ eid,
 																	'Remarks',
-																	'width=700,height=400');
+																	'width=300,height=250');
 													return false;
 												},
 
@@ -66,7 +66,7 @@
 														element
 																.css(
 																		'background-color',
-																		'orange');
+																		'Chocolate ');
 													}
 													if (event.title == "Annual Leave") {
 														element
@@ -78,7 +78,7 @@
 														element
 																.css(
 																		'background-color',
-																		'silver');
+																		'Red ');
 													}
 													if (event.title == "Vacation Leave") {
 														element
@@ -96,13 +96,13 @@
 														element
 																.css(
 																		'background-color',
-																		'red');
+																		'DarkGoldenRod ');
 													}
 													if (event.title == "Biweekly Meeting") {
 														element
 																.css(
 																		'background-color',
-																		'maroon');
+																		'Teal  ');
 													}
 													if (event.title == "Planned Leave") {
 														element
@@ -114,7 +114,7 @@
 														element
 																.css(
 																		'background-color',
-																		'pink');
+																		'DeepPink ');
 													}
 
 													/* 	Annual leave
@@ -176,7 +176,7 @@ a.fc-event {
 }
 
 a.fc-event:HOVER {
-	background-color: #222222;
+	background-color: Black;
 }
 </style>
 </head>
